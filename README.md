@@ -127,17 +127,17 @@ To run the latest GitHub version, download the repo and install required package
 ## Quickstart
 
 Import c4dynamics:
-```
+```python
 >>> import c4dynamics as c4d
 ```
 
 Define state space object of two variables in the state space (y, vy) with initial conditions (change the state with your variables): 
-```
+```python
 >>> s = c4d.state(y = 1, vy = 0.5)
 ``` 
 
 Multiply the state vector by a matrix and store:  
-```
+```python
 >>> F = [[1, 1],                      
          [0, 1]]              
 >>> s.X += F @ s.X                     
@@ -145,7 +145,7 @@ Multiply the state vector by a matrix and store:
 ```
 
 Print the state variables, the state vector, and the stored data:  
-```
+```python
 >>> print(s)  
 [ y  vy ]
 >>> s.X 
