@@ -19,18 +19,18 @@ viewimages = False
 
 
 
-c4d.cprint('V()', 'c')
+c4d.cprint('vel_mag()', 'c')
 s = c4d.state(vx = 7, vy = 24)
-print(s.V())
+print(s.vel_mag())
 # 25.0
 
 s = c4d.state(x = 100, y = 0, vx = -10, vy = 7)
-print(s.V())
+print(s.vel_mag())
 # 12.2
 
 
 s = c4d.state(x = 100, y = 0)
-print(s.V())
+print(s.vel_mag())
 # TypeError: state must have at least one velocity coordinate (vx, vy, or vz)
 
 

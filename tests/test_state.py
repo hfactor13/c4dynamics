@@ -46,7 +46,40 @@ class TestState(unittest.TestCase):
         """Test adding new variables with addvars method."""
         self.state_instance.addvars(vx_new=1.0, vy_new=2.0)
         self.assertEqual(self.state_instance._didx['vx_new'], 7)  # It should be the next index
+        self.assertTrue(np.array_equal(self.state_instance.X, np.array([1.0, 2.0, 3.0, 0.5, 1.5, 2.5, 1.0, 2.0])))
         self.assertTrue(np.array_equal(self.state_instance.X0, np.array([1.0, 2.0, 3.0, 0.5, 1.5, 2.5, 1.0, 2.0])))
+
+    def test_addvars_reserved_key(self):
+        """Test that addvars raises ValueError for reserved keys."""
+        with self.assertRaises(ValueError):
+            self.state_instance.addvars(X=1.0)
+        
+        with self.assertRaises(ValueError):
+            self.state_instance.addvars(X_=1.0)
+        
+        with self.assertRaises(ValueError):
+            self.state_instance.addvars(X0=1.0)
+
+    def test_addvars_with_stored_data(self):
+        """Test addvars fills new variables with zeros when data is stored."""
+        self.state_instance.store(t=0)
+        self.state_instance.store(t=1)
+        self.state_instance.store(t=2)
+        self.state_instance.addvars(vx_new=5.0, vy_new=10.0)
+        
+        # Check that new variables are in _didx
+        self.assertEqual(self.state_instance._didx['vx_new'], 7)
+        self.assertEqual(self.state_instance._didx['vy_new'], 8)
+        
+        # Check that X is updated correctly
+        self.assertTrue(np.array_equal(self.state_instance.X, np.array([1.0, 2.0, 3.0, 0.5, 1.5, 2.5, 5.0, 10.0])))
+        
+        # Check that stored data has zero columns for new variables
+        self.assertEqual(len(self.state_instance._data), 3)
+        for row in self.state_instance._data:
+            # Last two columns should be zeros
+            self.assertEqual(row[-2], 0)
+            self.assertEqual(row[-1], 0)
 
     def test_store(self):
         """Test the store method."""
@@ -101,10 +134,10 @@ class TestState(unittest.TestCase):
         norm_value = np.linalg.norm(normalized)
         self.assertAlmostEqual(norm_value, 1.0)
 
-    def test_P_method(self):
-        """Test the P method."""
+    def test_dist_method(self):
+        """Test the dist method."""
         other_state = state(x=4.0, y=5.0, z=6.0)
-        distance = self.state_instance.P(other_state)
+        distance = self.state_instance.dist(other_state)
         self.assertAlmostEqual(distance, np.sqrt((1.0 - 4.0) ** 2 + (2.0 - 5.0) ** 2 + (3.0 - 6.0) ** 2))
 
     def test_cartesian_method(self):

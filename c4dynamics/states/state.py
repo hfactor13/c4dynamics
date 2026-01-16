@@ -108,7 +108,7 @@ class state:
               ('Upsilon', '\u03A5'), ('Phi', '\u03A6'), ('Chi', '\u03A7'), ('Psi', '\u03A8'), ('Omega', '\u03A9'))
     #
 
-  _reserved_keys = ('X', 'X0', 'P', 'V', 'Position', 'Velocity', 'norm', 'normalize', 'data', '_data', '_prmdata', '_didx')
+  _reserved_keys = ('X', 'X_', 'X0', 'dist', 'vel_mag', 'Position', 'Velocity', 'norm', 'normalize', 'data', '_data', '_prmdata', '_didx')
 
   _STATETYPE = np.float64
 
@@ -126,7 +126,7 @@ class state:
 
     # 2. they will not be used in this fucntions. 
 
-    # 3. the user must provide his implementations for poisiton velcity etc.. like used in the P() function that there i 
+    # 3. the user must provide his implementations for poisiton velcity etc.. like used in the dist() function that there i 
     #   encountered the problem.
 
     # self._dtype = np.float32
@@ -423,16 +423,23 @@ class state:
 
     '''
     # NOTE: maybe useless because user can always create a new state object.
-    
+  
     b0 = len(self._didx)
     
+    self._X = np.hstack((self._X, np.zeros(len(kwargs), dtype = self._STATETYPE)))
+
     for i, (k, v) in enumerate(kwargs.items()):
-      setattr(self, k, v)
+      if k in self._reserved_keys:
+        raise ValueError(f"{k} is a reserved key. Keys {self._reserved_keys} cannot use as variable names.")
+      
       setattr(self, k + '0', v)
-      self._didx[k] = b0 + i
+      self._didx[k] = b0 + i # including t
+      self._X[b0 + i - 1] = v # not including t
+
+
 
     if self._data:
-      # add zero columns at the size of the new vars to avoid wrong broadcasting. 
+      # add zero columns at the size of the new vars to avoid wrong broadcasting.
       dataarr = np.array(self._data)
       dataarr = np.hstack((dataarr, np.zeros((dataarr.shape[0], b0))))
       self._data = dataarr.tolist()
@@ -1314,7 +1321,7 @@ class state:
     return np.array([getattr(self, var, 0) for var in ['vx', 'vy', 'vz']])
 
 
-  def P(self, state2 = None):
+  def dist(self, state2 = None):
     ''' 
     Euclidean distance. 
 
@@ -1327,14 +1334,14 @@ class state:
 
     .. math:: 
 
-      P = \\sum_{k=x,y,z} (self.k - state2.k)^2
+      dist = \\sum_{k=x,y,z} (self.k - state2.k)^2
 
 
     Otherwise: 
 
     .. math:: 
 
-      P = \\sum_{k=x,y,z} self.k^2
+      dist = \\sum_{k=x,y,z} self.k^2
     
 
       
@@ -1347,7 +1354,7 @@ class state:
     Note
     ----
     1. The provided states must have at least oneposition coordinate (x, y, z).  
-    2. In the context of :meth:`P() <c4dynamics.states.state.state.P>`, 
+    2. In the context of :meth:`dist() <c4dynamics.states.state.state.dist>`, 
        x, y, z, (case sensitive) are considered position coordinates.      
       
 
@@ -1374,21 +1381,21 @@ class state:
     .. code::
     
       >>> s = c4d.state(theta = 3.14, x = 1, y = 1)
-      >>> s.P()   # doctest: +ELLIPSIS 
+      >>> s.dist()   # doctest: +ELLIPSIS 
       1.414...
 
     .. code:: 
 
       >>> s  = c4d.state(theta = 3.14, x = 1, y = 1)
       >>> s2 = c4d.state(x = 1)
-      >>> s.P(s2)
+      >>> s.dist(s2)
       1.0
 
     .. code:: 
 
       >>> s  = c4d.state(theta = 3.14, x = 1, y = 1)
       >>> s2 = c4d.state(z = 1)
-      >>> s.P(s2)   # doctest: +ELLIPSIS 
+      >>> s.dist(s2)   # doctest: +ELLIPSIS 
       1.73...
 
 
@@ -1407,7 +1414,7 @@ class state:
       >>> camera = c4d.state(x = 0, y = 0)
       >>> car    = c4d.datapoint(x = -100, vx = 40, vy = -7)
       >>> dist   = []
-      >>> time = np.linspace(0, 10, 1000)
+      >>> time   = np.linspace(0, 10, 1000)
 
 
 
@@ -1417,7 +1424,7 @@ class state:
 
       >>> for t in time:
       ...   car.inteqm(np.zeros(3), time[1] - time[0]) # doctest: +IGNORE_OUTPUT 
-      ...   dist.append(camera.P(car))
+      ...   dist.append(camera.dist(car))
 
 
     Show results: 
@@ -1428,7 +1435,7 @@ class state:
       >>> c4d.plotdefaults(plt.gca(), 'Distance', 'Time (s)', '(m)')
       >>> plt.show()
 
-    .. figure:: /_examples/states/state_P.png
+    .. figure:: /_examples/states/state_dist.png
 
 
 
@@ -1451,7 +1458,7 @@ class state:
     return np.sqrt(dist)
 
 
-  def V(self):
+  def vel_mag(self):
     ''' 
     Velocity Magnitude. 
 
@@ -1459,7 +1466,7 @@ class state:
 
     .. math::
 
-      V = \\sum_{k=v_x,v_y,v_z} self.k^2
+      vel mag = \\sum_{k=v_x,v_y,v_z} self.k^2
 
     If the state doesn't include any velocity coordinate (vx, vy, vz), 
     a `ValueError` is raised.  
@@ -1479,7 +1486,7 @@ class state:
 
     Note
     ----
-    In the context of :meth:`V() <c4dynamics.states.state.state.V>`, 
+    In the context of :meth:`vel_mag() <c4dynamics.states.state.state.vel_mag>`, 
     vx, vy, vz, (case sensitive) are considered velocity coordinates.      
       
 
@@ -1489,13 +1496,13 @@ class state:
     .. code::
 
       >>> s = c4d.state(vx = 7, vy = 24)
-      >>> s.V() 
+      >>> s.vel_mag() 
       25.0
 
     .. code:: 
 
       >>> s = c4d.state(x = 100, y = 0, vx = -10, vy = 7)
-      >>> s.V()   # doctest: +ELLIPSIS 
+      >>> s.vel_mag()   # doctest: +ELLIPSIS 
       12.2...
 
     
@@ -1504,7 +1511,7 @@ class state:
     .. code::
 
       >>> s = c4d.state(x = 100, y = 0)
-      >>> # s.V()  
+      >>> # s.vel_mag()  
       TypeError: state must have at least one velocity coordinate (vx, vy, or vz)
 
 

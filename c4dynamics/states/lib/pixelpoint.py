@@ -208,10 +208,10 @@ class pixelpoint(state):
       ...   pp = c4d.pixelpoint(x = int(tri[0] + tri[2] / 2), y = int(tri[1] + tri[3] / 2), w = tri[2], h = tri[3])
       ...   pp.fsize = img.shape[:2]
       ...   pp.class_id = 'triangle'
-      ...   print('{:^10d} | {:^10d} | {:^16} | {:^16} | {:^10} | {:^14}'.format(pp.x, pp.y, ptup(pp.box[0]), ptup(pp.box[1]), pp.class_id, ptup(pp.fsize))) 
+      ...   print('{:^10.1f} | {:^10.1f} | {:^16} | {:^16} | {:^10} | {:^14}'.format(pp.x, pp.y, ptup(pp.box[0]), ptup(pp.box[1]), pp.class_id, ptup(pp.fsize))) 
       ...   cv2.rectangle(img, pp.box[0], pp.box[1], [0, 255, 0], 2)
       center x  |  center y  |   box top-left   | box bottom-right |   class    |   frame size  
-        399     |    274     |    (184, 117)    |    (614, 431)    |  triangle  |   (600, 800)
+       399.0    |   274.0    |    (184, 117)    |    (614, 431)    |  triangle  |   (600, 800)
       
     .. code:: 
 
@@ -249,15 +249,15 @@ class pixelpoint(state):
       >>> # prepare for printing properties:  
       >>> print('{:^10} | {:^10} | {:^16} | {:^16} | {:^10} | {:^14}'.format('center x', 'center y', 'box top-left', 'box bottom-right', 'class', 'frame size'))  # doctest: +IGNORE_OUTPUT 
       >>> for p in pts:   # doctest: +IGNORE_OUTPUT 
-      ...   print('{:^10d} | {:^10d} | {:^16} | {:^16} | {:^10} | {:^14}'.format(p.x, p.y, ptup(p.box[0]), ptup(p.box[1]), p.class_id, ptup(p.fsize)))
+      ...   print('{:^10.1f} | {:^10.1f} | {:^16} | {:^16} | {:^10} | {:^14}'.format(p.x, p.y, ptup(p.box[0]), ptup(p.box[1]), p.class_id, ptup(p.fsize)))
       ...   cv2.rectangle(img, p.box[0], p.box[1], [0, 255, 0], 2)
       ...   point = (int((p.box[0][0] + p.box[1][0]) / 2 - 75), p.box[1][1] + 22)
       ...   cv2.putText(img, p.class_id, point, cv2.FONT_HERSHEY_SIMPLEX, 1, [0, 255, 0], 2)
       center x  |  center y  |   box top-left   | box bottom-right |   class    |  frame size
-        615     |    295     |    (562, 259)    |    (668, 331)    | aeroplane  |  (1280, 720)
-        779     |    233     |    (720, 199)    |    (838, 267)    | aeroplane  |  (1280, 720)
-        635     |    189     |    (578, 153)    |    (692, 225)    | aeroplane  |  (1280, 720)
-        793     |    575     |    (742, 540)    |    (844, 610)    | aeroplane  |  (1280, 720)
+       615.0    |   295.0    |    (562, 259)    |    (668, 331)    | aeroplane  |  (1280, 720)
+       779.0    |   233.0    |    (720, 199)    |    (838, 267)    | aeroplane  |  (1280, 720)
+       635.0    |   189.0    |    (578, 153)    |    (692, 225)    | aeroplane  |  (1280, 720)
+       793.0    |   575.0    |    (742, 540)    |    (844, 610)    | aeroplane  |  (1280, 720)
 
 
     .. code:: 

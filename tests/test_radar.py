@@ -36,13 +36,13 @@ class TestRadar(unittest.TestCase):
         # Set up a mock or fake target state to ensure az and el can be computed
         # self.target = ... # configure your target appropriately
         
-        # Assuming P method of radar sets the azimuth and elevation for the target
+        # Assuming dist method of radar sets the azimuth and elevation for the target
         np.random.seed(111)
         azimuth, elevation, range_ = self.noisy_radar.measure(self.target, store=False)
         self.assertIsNotNone(azimuth)
         self.assertIsNotNone(elevation)
         self.assertIsNotNone(range_)
-        self.assertEqual(range_, self.noisy_radar.P(self.target) + self.noisy_radar.rng_noise_std * 1.4965537763705212)
+        self.assertEqual(range_, self.noisy_radar.dist(self.target) + self.noisy_radar.rng_noise_std * 1.4965537763705212)
 
     def test_measure_storing_params(self):
         """Test the storing of parameters."""

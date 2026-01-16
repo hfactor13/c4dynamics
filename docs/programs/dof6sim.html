@@ -55,7 +55,7 @@
     <link rel="prev" title="Interactive Guide to State Space and State Objects Modeling" href="../tutorials/introduction_guide.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Dec 17, 2025"/>
+    <meta name="docbuild:last-update" content="Jan 16, 2026"/>
   </head>
   
   
@@ -215,8 +215,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../api/generated/state/c4dynamics.states.state.state.Position.html">c4dynamics.states.state.state.Position</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/generated/state/c4dynamics.states.state.state.Velocity.html">c4dynamics.states.state.state.Velocity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/generated/state/c4dynamics.states.state.state.addvars.html">c4dynamics.states.state.state.addvars</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../api/generated/state/c4dynamics.states.state.state.P.html">c4dynamics.states.state.state.P</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../api/generated/state/c4dynamics.states.state.state.V.html">c4dynamics.states.state.state.V</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/generated/state/c4dynamics.states.state.state.dist.html">c4dynamics.states.state.state.dist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/generated/state/c4dynamics.states.state.state.vel_mag.html">c4dynamics.states.state.state.vel_mag</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/generated/state/c4dynamics.states.state.state.store.html">c4dynamics.states.state.state.store</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/generated/state/c4dynamics.states.state.state.storeparams.html">c4dynamics.states.state.state.storeparams</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/generated/state/c4dynamics.states.state.state.data.html">c4dynamics.states.state.state.data</a></li>
@@ -886,8 +886,8 @@ document.write(`
     <span class="c1"># atmospheric calculations</span>
     <span class="n">pressure</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">vs</span> <span class="o">=</span> <span class="n">aerodynamics</span><span class="o">.</span><span class="n">alt2atmo</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
 
-    <span class="n">mach</span> <span class="o">=</span> <span class="n">missile</span><span class="o">.</span><span class="n">V</span><span class="p">()</span> <span class="o">/</span> <span class="n">vs</span> <span class="c1"># mach number</span>
-    <span class="n">Q</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">missile</span><span class="o">.</span><span class="n">V</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># dynamic pressure</span>
+    <span class="n">mach</span> <span class="o">=</span> <span class="n">missile</span><span class="o">.</span><span class="n">vel_mag</span><span class="p">()</span> <span class="o">/</span> <span class="n">vs</span> <span class="c1"># mach number</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">missile</span><span class="o">.</span><span class="n">vel_mag</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># dynamic pressure</span>
 
 
     <span class="c1"># guidance and control</span>
@@ -900,7 +900,7 @@ document.write(`
 <span class="sd">        are used to base maneuver commands and the control system</span>
 <span class="sd">        responds by deflecting the control surfaces.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="n">Gs</span>       <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">missile</span><span class="o">.</span><span class="n">V</span><span class="p">()</span>
+        <span class="n">Gs</span>       <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">missile</span><span class="o">.</span><span class="n">vel_mag</span><span class="p">()</span>
         <span class="n">a_cmd</span>     <span class="o">=</span> <span class="n">Gs</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">wf</span><span class="p">,</span> <span class="n">ucl</span><span class="p">)</span>
         <span class="n">ab_cmd</span>   <span class="o">=</span> <span class="n">missile</span><span class="o">.</span><span class="n">BR</span> <span class="o">@</span> <span class="n">a_cmd</span>
         <span class="n">afp</span><span class="p">,</span> <span class="n">afy</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">ab_cmd</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
@@ -932,7 +932,7 @@ document.write(`
 
     <span class="c1"># aerodynamic moments</span>
     <span class="n">cM</span><span class="p">,</span> <span class="n">cN</span> <span class="o">=</span> <span class="n">aero</span><span class="o">.</span><span class="n">m_coef</span><span class="p">(</span><span class="n">mach</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">d_pitch</span><span class="p">,</span> <span class="n">d_yaw</span>
-                        <span class="p">,</span> <span class="n">missile</span><span class="o">.</span><span class="n">xcm</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">missile</span><span class="o">.</span><span class="n">V</span><span class="p">(),</span> <span class="n">fAb</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">fAb</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                        <span class="p">,</span> <span class="n">missile</span><span class="o">.</span><span class="n">xcm</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">missile</span><span class="o">.</span><span class="n">vel_mag</span><span class="p">(),</span> <span class="n">fAb</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">fAb</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
                             <span class="p">,</span> <span class="n">missile</span><span class="o">.</span><span class="n">q</span><span class="p">,</span> <span class="n">missile</span><span class="o">.</span><span class="n">r</span><span class="p">)</span>     <span class="c1"># compute pitch and yaw moment coefficients</span>
 
     <span class="n">mA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span>                     <span class="c1"># aerodynamic moment in roll</span>
@@ -1005,7 +1005,7 @@ document.write(`
     <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
     <span class="n">beta</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="o">-</span><span class="n">v</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
 
-    <span class="n">uvm</span> <span class="o">=</span> <span class="n">missile</span><span class="o">.</span><span class="n">Velocity</span> <span class="o">/</span> <span class="n">missile</span><span class="o">.</span><span class="n">V</span><span class="p">()</span>
+    <span class="n">uvm</span> <span class="o">=</span> <span class="n">missile</span><span class="o">.</span><span class="n">Velocity</span> <span class="o">/</span> <span class="n">missile</span><span class="o">.</span><span class="n">vel_mag</span><span class="p">()</span>
     <span class="n">ucl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">missile</span><span class="o">.</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">missile</span><span class="o">.</span><span class="n">psi</span><span class="p">)</span>
                     <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">missile</span><span class="o">.</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">missile</span><span class="o">.</span><span class="n">psi</span><span class="p">)</span>
                     <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="o">-</span><span class="n">missile</span><span class="o">.</span><span class="n">theta</span><span class="p">)])</span>
@@ -1311,7 +1311,7 @@ By c4dynamics
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Dec 17, 2025.
+  Last updated on Jan 16, 2026.
   <br/>
 </p>
   </div>
