@@ -962,9 +962,9 @@ class seeker(c4d.rigidbody):
     # target: A datapoint object detected by the seeker 
     
     # target-seeker position in inertial coordinates 
-    # self.range = self.P(target) + self.rng_noise_std * np.random.randn() 
+    # self.range = self.dist(target) + self.rng_noise_std * np.random.randn() 
     # rand1 = np.random.rand() # to preserve matlab normal 
-    # self.range = self.P(target) + self.rng_noise_std * np.sqrt(2) * erfinv(2 * rand1 - 1)  # c4d.mrandn() # 
+    # self.range = self.dist(target) + self.rng_noise_std * np.sqrt(2) * erfinv(2 * rand1 - 1)  # c4d.mrandn() # 
     
     # target-seeker position in seeker-body coordinates
     x = target.Position - self.Position

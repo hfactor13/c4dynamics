@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>c4dynamics.states.state.state.V &#8212; C4DYNAMICS v2.3</title>
+    <title>c4dynamics.states.state.state.vel_mag &#8212; C4DYNAMICS v2.3</title>
   
   
   
@@ -46,15 +46,15 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/state/c4dynamics.states.state.state.V';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/state/c4dynamics.states.state.state.vel_mag';</script>
     <link rel="icon" href="../../../_static/c4dlogo.svg"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="c4dynamics.states.state.state.store" href="c4dynamics.states.state.state.store.html" />
-    <link rel="prev" title="c4dynamics.states.state.state.P" href="c4dynamics.states.state.state.P.html" />
+    <link rel="prev" title="c4dynamics.states.state.state.dist" href="c4dynamics.states.state.state.dist.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Dec 17, 2025"/>
+    <meta name="docbuild:last-update" content="Jan 16, 2026"/>
   </head>
   
   
@@ -214,8 +214,8 @@
 <li class="toctree-l4"><a class="reference internal" href="c4dynamics.states.state.state.Position.html">c4dynamics.states.state.state.Position</a></li>
 <li class="toctree-l4"><a class="reference internal" href="c4dynamics.states.state.state.Velocity.html">c4dynamics.states.state.state.Velocity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="c4dynamics.states.state.state.addvars.html">c4dynamics.states.state.state.addvars</a></li>
-<li class="toctree-l4"><a class="reference internal" href="c4dynamics.states.state.state.P.html">c4dynamics.states.state.state.P</a></li>
-<li class="toctree-l4 current active"><a class="current reference internal" href="#">c4dynamics.states.state.state.V</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c4dynamics.states.state.state.dist.html">c4dynamics.states.state.state.dist</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">c4dynamics.states.state.state.vel_mag</a></li>
 <li class="toctree-l4"><a class="reference internal" href="c4dynamics.states.state.state.store.html">c4dynamics.states.state.state.store</a></li>
 <li class="toctree-l4"><a class="reference internal" href="c4dynamics.states.state.state.storeparams.html">c4dynamics.states.state.state.storeparams</a></li>
 <li class="toctree-l4"><a class="reference internal" href="c4dynamics.states.state.state.data.html">c4dynamics.states.state.state.data</a></li>
@@ -365,7 +365,7 @@
       
       
       
-      <li><a href="../../../_sources/api/generated/state/c4dynamics.states.state.state.V.rst" target="_blank"
+      <li><a href="../../../_sources/api/generated/state/c4dynamics.states.state.state.vel_mag.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -449,7 +449,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>c4dynamics.states.state.state.V</h1>
+    <h1>c4dynamics.states.state.state.vel_mag</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -459,7 +459,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c4dynamics.states.state.state.V"><code class="docutils literal notranslate"><span class="pre">state.V</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c4dynamics.states.state.state.vel_mag"><code class="docutils literal notranslate"><span class="pre">state.vel_mag</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -471,15 +471,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="c4dynamics-states-state-state-v">
-<h1>c4dynamics.states.state.state.V<a class="headerlink" href="#c4dynamics-states-state-state-v" title="Link to this heading">#</a></h1>
+  <section id="c4dynamics-states-state-state-vel-mag">
+<h1>c4dynamics.states.state.state.vel_mag<a class="headerlink" href="#c4dynamics-states-state-state-vel-mag" title="Link to this heading">#</a></h1>
 <dl class="py method">
-<dt class="sig sig-object py" id="c4dynamics.states.state.state.V">
-<span class="sig-prename descclassname"><span class="pre">state.</span></span><span class="sig-name descname"><span class="pre">V</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/c4dynamics/states/state.html#state.V"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#c4dynamics.states.state.state.V" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="c4dynamics.states.state.state.vel_mag">
+<span class="sig-prename descclassname"><span class="pre">state.</span></span><span class="sig-name descname"><span class="pre">vel_mag</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/c4dynamics/states/state.html#state.vel_mag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#c4dynamics.states.state.state.vel_mag" title="Link to this definition">#</a></dt>
 <dd><p>Velocity Magnitude.</p>
 <p>Calculates the magnitude of the object velocity :</p>
 <div class="math notranslate nohighlight">
-\[V = \sum_{k=v_x,v_y,v_z} self.k^2\]</div>
+\[vel mag = \sum_{k=v_x,v_y,v_z} self.k^2\]</div>
 <p>If the state doesn’t include any velocity coordinate (vx, vy, vz),
 a <cite>ValueError</cite> is raised.</p>
 <dl class="field-list simple">
@@ -492,23 +492,23 @@ a <cite>ValueError</cite> is raised.</p>
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In the context of <a class="reference internal" href="#c4dynamics.states.state.state.V" title="c4dynamics.states.state.state.V"><code class="xref py py-meth docutils literal notranslate"><span class="pre">V()</span></code></a>,
+<p>In the context of <a class="reference internal" href="#c4dynamics.states.state.state.vel_mag" title="c4dynamics.states.state.state.vel_mag"><code class="xref py py-meth docutils literal notranslate"><span class="pre">vel_mag()</span></code></a>,
 vx, vy, vz, (case sensitive) are considered velocity coordinates.</p>
 </div>
 <p class="rubric">Examples</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">c4d</span><span class="o">.</span><span class="n">state</span><span class="p">(</span><span class="n">vx</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="n">vy</span> <span class="o">=</span> <span class="mi">24</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">V</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">vel_mag</span><span class="p">()</span>
 <span class="go">25.0</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">c4d</span><span class="o">.</span><span class="n">state</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">vx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="n">vy</span> <span class="o">=</span> <span class="mi">7</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">V</span><span class="p">()</span>   
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">vel_mag</span><span class="p">()</span>   
 <span class="go">12.2...</span>
 </pre></div>
 </div>
 <p>Uncommenting the following line throws a type error:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">c4d</span><span class="o">.</span><span class="n">state</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># s.V()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># s.vel_mag()</span>
 <span class="go">TypeError: state must have at least one velocity coordinate (vx, vy, or vz)</span>
 </pre></div>
 </div>
@@ -528,12 +528,12 @@ vx, vy, vz, (case sensitive) are considered velocity coordinates.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="c4dynamics.states.state.state.P.html"
+       href="c4dynamics.states.state.state.dist.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">c4dynamics.states.state.state.P</p>
+        <p class="prev-next-title">c4dynamics.states.state.state.dist</p>
       </div>
     </a>
     <a class="right-next"
@@ -561,7 +561,7 @@ vx, vy, vz, (case sensitive) are considered velocity coordinates.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c4dynamics.states.state.state.V"><code class="docutils literal notranslate"><span class="pre">state.V</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c4dynamics.states.state.state.vel_mag"><code class="docutils literal notranslate"><span class="pre">state.vel_mag</span></code></a></li>
 </ul>
   </nav></div>
 
@@ -595,7 +595,7 @@ By c4dynamics
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Dec 17, 2025.
+  Last updated on Jan 16, 2026.
   <br/>
 </p>
   </div>

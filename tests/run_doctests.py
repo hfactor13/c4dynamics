@@ -2,9 +2,19 @@
 
 import os, sys 
 import subprocess
+from io import StringIO
 
 sys.path.append('.')
 import c4dynamics as c4d 
+
+# Open output file for writing
+output_file = open(r'tests\_out\doctests_output.txt', 'w')
+
+# Redirect stdout and stderr
+original_stdout = sys.stdout
+original_stderr = sys.stderr
+sys.stdout = output_file
+sys.stderr = output_file
 
 print(sys.executable) 
 
@@ -53,8 +63,16 @@ for dirpath, _, filenames in os.walk(packagefol):
     #   subprocess.run([sys.executable, testfile])
     
     c4d.cprint(f'file: {file_name}', 'c')
-    subprocess.run([sys.executable, os.path.join(dirpath, file_name)])
+    result = subprocess.run([sys.executable, os.path.join(dirpath, file_name)], 
+                           stdout=subprocess.PIPE, 
+                           stderr=subprocess.STDOUT,
+                           text=True)
+    output_file.write(result.stdout)
 
 
+# Restore stdout and stderr
+sys.stdout = original_stdout
+sys.stderr = original_stderr
+output_file.close()
 
-
+print("All output saved to 'doctests_output.txt'")

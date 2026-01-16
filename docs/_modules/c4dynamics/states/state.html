@@ -49,7 +49,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Dec 17, 2025"/>
+    <meta name="docbuild:last-update" content="Jan 16, 2026"/>
   </head>
   
   
@@ -211,8 +211,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/generated/state/c4dynamics.states.state.state.Position.html">c4dynamics.states.state.state.Position</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/generated/state/c4dynamics.states.state.state.Velocity.html">c4dynamics.states.state.state.Velocity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/generated/state/c4dynamics.states.state.state.addvars.html">c4dynamics.states.state.state.addvars</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/state/c4dynamics.states.state.state.P.html">c4dynamics.states.state.state.P</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/state/c4dynamics.states.state.state.V.html">c4dynamics.states.state.state.V</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/state/c4dynamics.states.state.state.dist.html">c4dynamics.states.state.state.dist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/state/c4dynamics.states.state.state.vel_mag.html">c4dynamics.states.state.state.vel_mag</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/generated/state/c4dynamics.states.state.state.store.html">c4dynamics.states.state.state.store</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/generated/state/c4dynamics.states.state.state.storeparams.html">c4dynamics.states.state.state.storeparams</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/generated/state/c4dynamics.states.state.state.data.html">c4dynamics.states.state.state.data</a></li>
@@ -523,7 +523,7 @@ document.write(`
               <span class="p">(</span><span class="s1">&#39;Upsilon&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\u03A5</span><span class="s1">&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Phi&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\u03A6</span><span class="s1">&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Chi&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\u03A7</span><span class="s1">&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Psi&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\u03A8</span><span class="s1">&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Omega&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\u03A9</span><span class="s1">&#39;</span><span class="p">))</span>
     <span class="c1">#</span>
 
-  <span class="n">_reserved_keys</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;X0&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;Position&#39;</span><span class="p">,</span> <span class="s1">&#39;Velocity&#39;</span><span class="p">,</span> <span class="s1">&#39;norm&#39;</span><span class="p">,</span> <span class="s1">&#39;normalize&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;_data&#39;</span><span class="p">,</span> <span class="s1">&#39;_prmdata&#39;</span><span class="p">,</span> <span class="s1">&#39;_didx&#39;</span><span class="p">)</span>
+  <span class="n">_reserved_keys</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;X_&#39;</span><span class="p">,</span> <span class="s1">&#39;X0&#39;</span><span class="p">,</span> <span class="s1">&#39;dist&#39;</span><span class="p">,</span> <span class="s1">&#39;vel_mag&#39;</span><span class="p">,</span> <span class="s1">&#39;Position&#39;</span><span class="p">,</span> <span class="s1">&#39;Velocity&#39;</span><span class="p">,</span> <span class="s1">&#39;norm&#39;</span><span class="p">,</span> <span class="s1">&#39;normalize&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;_data&#39;</span><span class="p">,</span> <span class="s1">&#39;_prmdata&#39;</span><span class="p">,</span> <span class="s1">&#39;_didx&#39;</span><span class="p">)</span>
 
   <span class="n">_STATETYPE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span>
 
@@ -541,7 +541,7 @@ document.write(`
 
     <span class="c1"># 2. they will not be used in this fucntions. </span>
 
-    <span class="c1"># 3. the user must provide his implementations for poisiton velcity etc.. like used in the P() function that there i </span>
+    <span class="c1"># 3. the user must provide his implementations for poisiton velcity etc.. like used in the dist() function that there i </span>
     <span class="c1">#   encountered the problem.</span>
 
     <span class="c1"># self._dtype = np.float32</span>
@@ -840,16 +840,23 @@ document.write(`
 
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="c1"># NOTE: maybe useless because user can always create a new state object.</span>
-    
+  
     <span class="n">b0</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_didx</span><span class="p">)</span>
     
+    <span class="bp">self</span><span class="o">.</span><span class="n">_X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_X</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">),</span> <span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_STATETYPE</span><span class="p">)))</span>
+
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
-      <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reserved_keys</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> is a reserved key. Keys </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_reserved_keys</span><span class="si">}</span><span class="s2"> cannot use as variable names.&quot;</span><span class="p">)</span>
+      
       <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span> <span class="o">+</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-      <span class="bp">self</span><span class="o">.</span><span class="n">_didx</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">b0</span> <span class="o">+</span> <span class="n">i</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_didx</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">b0</span> <span class="o">+</span> <span class="n">i</span> <span class="c1"># including t</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_X</span><span class="p">[</span><span class="n">b0</span> <span class="o">+</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span> <span class="c1"># not including t</span>
+
+
 
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">:</span>
-      <span class="c1"># add zero columns at the size of the new vars to avoid wrong broadcasting. </span>
+      <span class="c1"># add zero columns at the size of the new vars to avoid wrong broadcasting.</span>
       <span class="n">dataarr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
       <span class="n">dataarr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">dataarr</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">dataarr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">b0</span><span class="p">))))</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">dataarr</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span></div>
@@ -1747,9 +1754,9 @@ document.write(`
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;vx&#39;</span><span class="p">,</span> <span class="s1">&#39;vy&#39;</span><span class="p">,</span> <span class="s1">&#39;vz&#39;</span><span class="p">]])</span>
 
 
-<div class="viewcode-block" id="state.P">
-<a class="viewcode-back" href="../../../api/generated/state/c4dynamics.states.state.state.P.html#c4dynamics.states.state.state.P">[docs]</a>
-  <span class="k">def</span><span class="w"> </span><span class="nf">P</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state2</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="state.dist">
+<a class="viewcode-back" href="../../../api/generated/state/c4dynamics.states.state.state.dist.html#c4dynamics.states.state.state.dist">[docs]</a>
+  <span class="k">def</span><span class="w"> </span><span class="nf">dist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state2</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39; </span>
 <span class="sd">    Euclidean distance. </span>
 
@@ -1762,14 +1769,14 @@ document.write(`
 
 <span class="sd">    .. math:: </span>
 
-<span class="sd">      P = \\sum_{k=x,y,z} (self.k - state2.k)^2</span>
+<span class="sd">      dist = \\sum_{k=x,y,z} (self.k - state2.k)^2</span>
 
 
 <span class="sd">    Otherwise: </span>
 
 <span class="sd">    .. math:: </span>
 
-<span class="sd">      P = \\sum_{k=x,y,z} self.k^2</span>
+<span class="sd">      dist = \\sum_{k=x,y,z} self.k^2</span>
 <span class="sd">    </span>
 
 <span class="sd">      </span>
@@ -1782,7 +1789,7 @@ document.write(`
 <span class="sd">    Note</span>
 <span class="sd">    ----</span>
 <span class="sd">    1. The provided states must have at least oneposition coordinate (x, y, z).  </span>
-<span class="sd">    2. In the context of :meth:`P() &lt;c4dynamics.states.state.state.P&gt;`, </span>
+<span class="sd">    2. In the context of :meth:`dist() &lt;c4dynamics.states.state.state.dist&gt;`, </span>
 <span class="sd">       x, y, z, (case sensitive) are considered position coordinates.      </span>
 <span class="sd">      </span>
 
@@ -1809,21 +1816,21 @@ document.write(`
 <span class="sd">    .. code::</span>
 <span class="sd">    </span>
 <span class="sd">      &gt;&gt;&gt; s = c4d.state(theta = 3.14, x = 1, y = 1)</span>
-<span class="sd">      &gt;&gt;&gt; s.P()   # doctest: +ELLIPSIS </span>
+<span class="sd">      &gt;&gt;&gt; s.dist()   # doctest: +ELLIPSIS </span>
 <span class="sd">      1.414...</span>
 
 <span class="sd">    .. code:: </span>
 
 <span class="sd">      &gt;&gt;&gt; s  = c4d.state(theta = 3.14, x = 1, y = 1)</span>
 <span class="sd">      &gt;&gt;&gt; s2 = c4d.state(x = 1)</span>
-<span class="sd">      &gt;&gt;&gt; s.P(s2)</span>
+<span class="sd">      &gt;&gt;&gt; s.dist(s2)</span>
 <span class="sd">      1.0</span>
 
 <span class="sd">    .. code:: </span>
 
 <span class="sd">      &gt;&gt;&gt; s  = c4d.state(theta = 3.14, x = 1, y = 1)</span>
 <span class="sd">      &gt;&gt;&gt; s2 = c4d.state(z = 1)</span>
-<span class="sd">      &gt;&gt;&gt; s.P(s2)   # doctest: +ELLIPSIS </span>
+<span class="sd">      &gt;&gt;&gt; s.dist(s2)   # doctest: +ELLIPSIS </span>
 <span class="sd">      1.73...</span>
 
 
@@ -1842,7 +1849,7 @@ document.write(`
 <span class="sd">      &gt;&gt;&gt; camera = c4d.state(x = 0, y = 0)</span>
 <span class="sd">      &gt;&gt;&gt; car    = c4d.datapoint(x = -100, vx = 40, vy = -7)</span>
 <span class="sd">      &gt;&gt;&gt; dist   = []</span>
-<span class="sd">      &gt;&gt;&gt; time = np.linspace(0, 10, 1000)</span>
+<span class="sd">      &gt;&gt;&gt; time   = np.linspace(0, 10, 1000)</span>
 
 
 
@@ -1852,7 +1859,7 @@ document.write(`
 
 <span class="sd">      &gt;&gt;&gt; for t in time:</span>
 <span class="sd">      ...   car.inteqm(np.zeros(3), time[1] - time[0]) # doctest: +IGNORE_OUTPUT </span>
-<span class="sd">      ...   dist.append(camera.P(car))</span>
+<span class="sd">      ...   dist.append(camera.dist(car))</span>
 
 
 <span class="sd">    Show results: </span>
@@ -1863,7 +1870,7 @@ document.write(`
 <span class="sd">      &gt;&gt;&gt; c4d.plotdefaults(plt.gca(), &#39;Distance&#39;, &#39;Time (s)&#39;, &#39;(m)&#39;)</span>
 <span class="sd">      &gt;&gt;&gt; plt.show()</span>
 
-<span class="sd">    .. figure:: /_examples/states/state_P.png</span>
+<span class="sd">    .. figure:: /_examples/states/state_dist.png</span>
 
 
 
@@ -1887,9 +1894,9 @@ document.write(`
 
 
 
-<div class="viewcode-block" id="state.V">
-<a class="viewcode-back" href="../../../api/generated/state/c4dynamics.states.state.state.V.html#c4dynamics.states.state.state.V">[docs]</a>
-  <span class="k">def</span><span class="w"> </span><span class="nf">V</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="state.vel_mag">
+<a class="viewcode-back" href="../../../api/generated/state/c4dynamics.states.state.state.vel_mag.html#c4dynamics.states.state.state.vel_mag">[docs]</a>
+  <span class="k">def</span><span class="w"> </span><span class="nf">vel_mag</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39; </span>
 <span class="sd">    Velocity Magnitude. </span>
 
@@ -1897,7 +1904,7 @@ document.write(`
 
 <span class="sd">    .. math::</span>
 
-<span class="sd">      V = \\sum_{k=v_x,v_y,v_z} self.k^2</span>
+<span class="sd">      vel mag = \\sum_{k=v_x,v_y,v_z} self.k^2</span>
 
 <span class="sd">    If the state doesn&#39;t include any velocity coordinate (vx, vy, vz), </span>
 <span class="sd">    a `ValueError` is raised.  </span>
@@ -1917,7 +1924,7 @@ document.write(`
 
 <span class="sd">    Note</span>
 <span class="sd">    ----</span>
-<span class="sd">    In the context of :meth:`V() &lt;c4dynamics.states.state.state.V&gt;`, </span>
+<span class="sd">    In the context of :meth:`vel_mag() &lt;c4dynamics.states.state.state.vel_mag&gt;`, </span>
 <span class="sd">    vx, vy, vz, (case sensitive) are considered velocity coordinates.      </span>
 <span class="sd">      </span>
 
@@ -1927,13 +1934,13 @@ document.write(`
 <span class="sd">    .. code::</span>
 
 <span class="sd">      &gt;&gt;&gt; s = c4d.state(vx = 7, vy = 24)</span>
-<span class="sd">      &gt;&gt;&gt; s.V() </span>
+<span class="sd">      &gt;&gt;&gt; s.vel_mag() </span>
 <span class="sd">      25.0</span>
 
 <span class="sd">    .. code:: </span>
 
 <span class="sd">      &gt;&gt;&gt; s = c4d.state(x = 100, y = 0, vx = -10, vy = 7)</span>
-<span class="sd">      &gt;&gt;&gt; s.V()   # doctest: +ELLIPSIS </span>
+<span class="sd">      &gt;&gt;&gt; s.vel_mag()   # doctest: +ELLIPSIS </span>
 <span class="sd">      12.2...</span>
 
 <span class="sd">    </span>
@@ -1942,7 +1949,7 @@ document.write(`
 <span class="sd">    .. code::</span>
 
 <span class="sd">      &gt;&gt;&gt; s = c4d.state(x = 100, y = 0)</span>
-<span class="sd">      &gt;&gt;&gt; # s.V()  </span>
+<span class="sd">      &gt;&gt;&gt; # s.vel_mag()  </span>
 <span class="sd">      TypeError: state must have at least one velocity coordinate (vx, vy, or vz)</span>
 
 
@@ -2018,7 +2025,7 @@ By c4dynamics
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Dec 17, 2025.
+  Last updated on Jan 16, 2026.
   <br/>
 </p>
   </div>

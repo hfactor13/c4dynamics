@@ -17,19 +17,19 @@ viewimages = False
 
 
 
-c4d.cprint('P()', 'c')
+c4d.cprint('dist()', 'c')
 s = c4d.state(theta = 3.14, x = 1, y = 1)
-print(s.P())
+print(s.dist())
 # 1.414 
 
 
 s2 = c4d.state(x = 1)
-print(s.P(s2))
+print(s.dist(s2))
 # 1
 
 
 s2 = c4d.state(z = 1)
-print(s.P(s2))
+print(s.dist(s2))
 # 1.73
 
 camera = c4d.state(x = 0, y = 0)
@@ -38,7 +38,7 @@ dist = []
 time = np.linspace(0, 10, 1000)
 for t in time:
   car.inteqm(np.zeros(3), time[1] - time[0])
-  dist.append(camera.P(car))
+  dist.append(camera.dist(car))
 
 
 
@@ -54,7 +54,7 @@ c4d.plotdefaults(ax, 'Distance', 'Time (s)', '(m)')
 
 # standard saving  \ bad margings. 
 savedir = os.path.join(os.getcwd(), 'docs', 'source', '_examples', 'states') 
-figname = c4d.j(savedir, 'state_P.png')
+figname = c4d.j(savedir, 'state_dist.png')
 
 
 plt.savefig(figname, bbox_inches = 'tight', pad_inches = .05, dpi = 600)

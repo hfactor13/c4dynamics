@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>c4dynamics.states.state.state.P &#8212; C4DYNAMICS v2.3</title>
+    <title>c4dynamics.states.state.state.dist &#8212; C4DYNAMICS v2.3</title>
   
   
   
@@ -46,15 +46,15 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/state/c4dynamics.states.state.state.P';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/state/c4dynamics.states.state.state.dist';</script>
     <link rel="icon" href="../../../_static/c4dlogo.svg"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="c4dynamics.states.state.state.V" href="c4dynamics.states.state.state.V.html" />
+    <link rel="next" title="c4dynamics.states.state.state.vel_mag" href="c4dynamics.states.state.state.vel_mag.html" />
     <link rel="prev" title="c4dynamics.states.state.state.addvars" href="c4dynamics.states.state.state.addvars.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Dec 17, 2025"/>
+    <meta name="docbuild:last-update" content="Jan 16, 2026"/>
   </head>
   
   
@@ -214,8 +214,8 @@
 <li class="toctree-l4"><a class="reference internal" href="c4dynamics.states.state.state.Position.html">c4dynamics.states.state.state.Position</a></li>
 <li class="toctree-l4"><a class="reference internal" href="c4dynamics.states.state.state.Velocity.html">c4dynamics.states.state.state.Velocity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="c4dynamics.states.state.state.addvars.html">c4dynamics.states.state.state.addvars</a></li>
-<li class="toctree-l4 current active"><a class="current reference internal" href="#">c4dynamics.states.state.state.P</a></li>
-<li class="toctree-l4"><a class="reference internal" href="c4dynamics.states.state.state.V.html">c4dynamics.states.state.state.V</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">c4dynamics.states.state.state.dist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c4dynamics.states.state.state.vel_mag.html">c4dynamics.states.state.state.vel_mag</a></li>
 <li class="toctree-l4"><a class="reference internal" href="c4dynamics.states.state.state.store.html">c4dynamics.states.state.state.store</a></li>
 <li class="toctree-l4"><a class="reference internal" href="c4dynamics.states.state.state.storeparams.html">c4dynamics.states.state.state.storeparams</a></li>
 <li class="toctree-l4"><a class="reference internal" href="c4dynamics.states.state.state.data.html">c4dynamics.states.state.state.data</a></li>
@@ -365,7 +365,7 @@
       
       
       
-      <li><a href="../../../_sources/api/generated/state/c4dynamics.states.state.state.P.rst" target="_blank"
+      <li><a href="../../../_sources/api/generated/state/c4dynamics.states.state.state.dist.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -449,7 +449,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>c4dynamics.states.state.state.P</h1>
+    <h1>c4dynamics.states.state.state.dist</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -459,7 +459,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c4dynamics.states.state.state.P"><code class="docutils literal notranslate"><span class="pre">state.P</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c4dynamics.states.state.state.dist"><code class="docutils literal notranslate"><span class="pre">state.dist</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -471,21 +471,21 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="c4dynamics-states-state-state-p">
-<h1>c4dynamics.states.state.state.P<a class="headerlink" href="#c4dynamics-states-state-state-p" title="Link to this heading">#</a></h1>
+  <section id="c4dynamics-states-state-state-dist">
+<h1>c4dynamics.states.state.state.dist<a class="headerlink" href="#c4dynamics-states-state-state-dist" title="Link to this heading">#</a></h1>
 <dl class="py method">
-<dt class="sig sig-object py" id="c4dynamics.states.state.state.P">
-<span class="sig-prename descclassname"><span class="pre">state.</span></span><span class="sig-name descname"><span class="pre">P</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/c4dynamics/states/state.html#state.P"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#c4dynamics.states.state.state.P" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="c4dynamics.states.state.state.dist">
+<span class="sig-prename descclassname"><span class="pre">state.</span></span><span class="sig-name descname"><span class="pre">dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/c4dynamics/states/state.html#state.dist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#c4dynamics.states.state.state.dist" title="Link to this definition">#</a></dt>
 <dd><p>Euclidean distance.</p>
 <p>Calculates the Euclidean distance between the self state object and
 a second object <cite>state2</cite>. If <cite>state2</cite> is not provided, then the self
 Euclidean distance is calculated.</p>
 <p>When a second state object is provided:</p>
 <div class="math notranslate nohighlight">
-\[P = \sum_{k=x,y,z} (self.k - state2.k)^2\]</div>
+\[dist = \sum_{k=x,y,z} (self.k - state2.k)^2\]</div>
 <p>Otherwise:</p>
 <div class="math notranslate nohighlight">
-\[P = \sum_{k=x,y,z} self.k^2\]</div>
+\[dist = \sum_{k=x,y,z} self.k^2\]</div>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>TypeError</strong> – If the states don’t include any position coordinate (x, y, z).</p>
@@ -495,7 +495,7 @@ Euclidean distance is calculated.</p>
 <p class="admonition-title">Note</p>
 <ol class="arabic simple">
 <li><p>The provided states must have at least oneposition coordinate (x, y, z).</p></li>
-<li><p>In the context of <a class="reference internal" href="#c4dynamics.states.state.state.P" title="c4dynamics.states.state.state.P"><code class="xref py py-meth docutils literal notranslate"><span class="pre">P()</span></code></a>,
+<li><p>In the context of <a class="reference internal" href="#c4dynamics.states.state.state.dist" title="c4dynamics.states.state.state.dist"><code class="xref py py-meth docutils literal notranslate"><span class="pre">dist()</span></code></a>,
 x, y, z, (case sensitive) are considered position coordinates.</p></li>
 </ol>
 </div>
@@ -512,19 +512,19 @@ x, y, z, (case sensitive) are considered position coordinates.</p></li>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">c4d</span><span class="o">.</span><span class="n">state</span><span class="p">(</span><span class="n">theta</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">P</span><span class="p">()</span>   
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">dist</span><span class="p">()</span>   
 <span class="go">1.414...</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>  <span class="o">=</span> <span class="n">c4d</span><span class="o">.</span><span class="n">state</span><span class="p">(</span><span class="n">theta</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s2</span> <span class="o">=</span> <span class="n">c4d</span><span class="o">.</span><span class="n">state</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
 <span class="go">1.0</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>  <span class="o">=</span> <span class="n">c4d</span><span class="o">.</span><span class="n">state</span><span class="p">(</span><span class="n">theta</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s2</span> <span class="o">=</span> <span class="n">c4d</span><span class="o">.</span><span class="n">state</span><span class="p">(</span><span class="n">z</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>   
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>   
 <span class="go">1.73...</span>
 </pre></div>
 </div>
@@ -537,13 +537,13 @@ x, y, z, (case sensitive) are considered position coordinates.</p></li>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">camera</span> <span class="o">=</span> <span class="n">c4d</span><span class="o">.</span><span class="n">state</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">car</span>    <span class="o">=</span> <span class="n">c4d</span><span class="o">.</span><span class="n">datapoint</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="n">vx</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">vy</span> <span class="o">=</span> <span class="o">-</span><span class="mi">7</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span>   <span class="o">=</span> <span class="p">[]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Main loop:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">time</span><span class="p">:</span>
 <span class="gp">... </span>  <span class="n">car</span><span class="o">.</span><span class="n">inteqm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
-<span class="gp">... </span>  <span class="n">dist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">camera</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">car</span><span class="p">))</span>
+<span class="gp">... </span>  <span class="n">dist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">camera</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">car</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Show results:</p>
@@ -553,7 +553,7 @@ x, y, z, (case sensitive) are considered position coordinates.</p></li>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../../../_images/state_P.png" src="../../../_images/state_P.png" />
+<img alt="../../../_images/state_dist.png" src="../../../_images/state_dist.png" />
 </figure>
 </dd></dl>
 
@@ -580,11 +580,11 @@ x, y, z, (case sensitive) are considered position coordinates.</p></li>
       </div>
     </a>
     <a class="right-next"
-       href="c4dynamics.states.state.state.V.html"
+       href="c4dynamics.states.state.state.vel_mag.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">c4dynamics.states.state.state.V</p>
+        <p class="prev-next-title">c4dynamics.states.state.state.vel_mag</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -604,7 +604,7 @@ x, y, z, (case sensitive) are considered position coordinates.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c4dynamics.states.state.state.P"><code class="docutils literal notranslate"><span class="pre">state.P</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c4dynamics.states.state.state.dist"><code class="docutils literal notranslate"><span class="pre">state.dist</span></code></a></li>
 </ul>
   </nav></div>
 
@@ -638,7 +638,7 @@ By c4dynamics
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Dec 17, 2025.
+  Last updated on Jan 16, 2026.
   <br/>
 </p>
   </div>

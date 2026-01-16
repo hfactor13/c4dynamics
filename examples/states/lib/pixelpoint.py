@@ -87,7 +87,7 @@ def detect_triangle():
     
     pp.fsize = img.shape[:2]
     pp.class_id = 'triangle'
-    print('{:^10d} | {:^10d} | {:^16} | {:^16} | {:^10} | {:^14}'.format(pp.x, pp.y, ptup(pp.box[0]), ptup(pp.box[1]), pp.class_id, ptup(pp.fsize)))
+    print('{:^10.1f} | {:^10.1f} | {:^16} | {:^16} | {:^10} | {:^14}'.format(pp.x, pp.y, ptup(pp.box[0]), ptup(pp.box[1]), pp.class_id, ptup(pp.fsize)))
 
     cv2.rectangle(img, pp.box[0], pp.box[1], [0, 255, 0], 2)
   #  center x  |  center y  |   box top-left   | box bottom-right |   class    |   frame size  
@@ -110,7 +110,7 @@ def yolo():
   print('{:^10} | {:^10} | {:^16} | {:^16} | {:^10} | {:^14}'.format('center x', 'center y', 'box top-left', 'box bottom-right', 'class', 'frame size'))
 
   for p in pts:
-    print('{:^10d} | {:^10d} | {:^16} | {:^16} | {:^10} | {:^14}'.format(
+    print('{:^10.1f} | {:^10.1f} | {:^16} | {:^16} | {:^10} | {:^14}'.format(
       p.x, p.y, ptup(p.box[0]), ptup(p.box[1]), p.class_id, ptup(p.fsize)))
     
     cv2.rectangle(img, p.box[0], p.box[1], [0, 255, 0], 2)
@@ -132,10 +132,10 @@ def yolo():
 
 if __name__ == '__main__': 
   intro()
-  # from_image()
-  # from_detector()
-  # detect_triangle()
-  # yolo() 
+  from_image()
+  from_detector()
+  detect_triangle()
+  yolo() 
 
   plt.show(block = True)
 

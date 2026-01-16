@@ -42,8 +42,8 @@ The State Object
     :toctree: generated/state
 
     state.addvars 
-    state.P 
-    state.V
+    state.dist 
+    state.vel_mag
     
   .. raw:: html
 
