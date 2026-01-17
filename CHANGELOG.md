@@ -6,6 +6,17 @@ All notable changes to this project will be documented in this file.
 - mountain_car.py: predefined environment for the RL mountain car problem 
 
 
+## [2.3.3] - 2026-01-17
+### Changed
+- fix bug in addvars(): adjust state vector legnth with new vars.
+- change P() -> dist() and V() -> vel_mag() to enable these names for user variables.  
+
+
+## [2.3.2] - 2025-12-02
+### Changed
+- supersedes 2.3.1 which was tagged without the 'v' prefix.
+
+
 ## [2.3.1] - 2025-12-02
 ### Changed
 - Fix the compatible Python versions to include 3.12 (<3.13).
