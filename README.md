@@ -118,7 +118,11 @@ To run the latest GitHub version, download the repo and install required package
 >>> pip install -r requirements.txt
 ```
 
- 
+* [Conda]
+
+```
+>>> conda install -c conda-forge c4dynamics
+``` 
  
  
 
