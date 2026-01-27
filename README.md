@@ -73,7 +73,7 @@ https://c4dynamics.github.io/c4dynamics/
 ✅ Optimization for Monte Carlo simulations
 
 
-
+## About c4dynamics
 
 **c4dynamics** is designed to 
 simplify the development of algorithms for dynamic systems, 
